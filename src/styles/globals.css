@@ -2,77 +2,65 @@
 
 @theme {
     --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    --color-primary: #f67280;
-    --color-primary-content: #101828;
-    --color-complementary: #355c7d;
-    --background-image-noise: linear-gradient(
-            to bottom,
-            color-mix(in oklab, var(--color-gray-950) 0%, transparent),
-            color-mix(in oklab, var(--color-gray-950) 100%, transparent)
-        ),
-        url('/images/noise.png');
+    
+    /* NMBS Inspired Colors */
+    --color-nmbs-blue: #006AB3;
+    --color-nmbs-grey-light: #F5F5F5;
+    --color-nmbs-grey-medium: #E6E6E6;
+    --color-nmbs-text: #333333;
+    
+    --color-primary: var(--color-nmbs-blue);
+    --color-primary-content: #ffffff;
+    --color-complementary: var(--color-nmbs-grey-light);
+    
+    --background-image-noise: none; /* Removed noise for cleaner look */
 }
 
 @layer base {
+    body {
+        @apply text-nmbs-text bg-nmbs-grey-light;
+    }
+
     h1 {
-        @apply text-4xl font-bold tracking-tight sm:text-5xl;
+        @apply text-4xl font-bold tracking-tight sm:text-5xl text-nmbs-blue mb-6;
     }
 
     h2 {
-        @apply text-2xl font-bold sm:text-3xl;
+        @apply text-2xl font-bold sm:text-3xl text-nmbs-blue mt-8 mb-4;
+    }
+    
+    h3 {
+        @apply text-xl font-semibold text-nmbs-text mt-6 mb-3;
+    }
+
+    p {
+        @apply leading-relaxed mb-4;
     }
 
     a:not(.btn) {
-        @apply underline transition hover:opacity-80;
+        @apply text-nmbs-blue underline transition hover:opacity-80;
     }
 
     pre {
-        @apply p-6 overflow-x-auto rounded-lg;
+        @apply p-6 overflow-x-auto rounded-lg bg-gray-900 text-white;
     }
 
     :not(pre) > code {
-        @apply px-1 py-0.5 font-mono rounded bg-gray-900 text-primary;
+        @apply px-1 py-0.5 font-mono rounded bg-gray-200 text-nmbs-blue;
         font-size: 0.9em;
     }
 }
 
 @layer components {
-    .markdown {
-        > * {
-            @apply my-6;
-        }
-
-        :where(h1, h2) {
-            @apply mt-12 mb-6;
-        }
-
-        > :first-child {
-            @apply mt-0;
-        }
-
-        > :last-child {
-            @apply mb-0;
-        }
-    }
-
     .btn {
-        @apply inline-flex items-center justify-center gap-2 bg-primary text-primary-content cursor-pointer text-center font-semibold no-underline transition-colors;
-        padding: var(--btn-py, 0.875rem) var(--btn-px, 1.25rem);
-        font-size: var(--btn-font-size, 0.875rem);
-        border-radius: var(--btn-border-radius, 0.25rem);
-
+        @apply inline-flex items-center justify-center gap-2 bg-primary text-primary-content cursor-pointer text-center font-bold no-underline transition-all shadow-sm rounded-full px-6 py-3 hover:shadow-md hover:-translate-y-0.5;
+        
         &:hover {
-            @apply bg-primary/85;
+            @apply bg-primary/90;
         }
 
         &:disabled {
-            @apply text-gray-400 bg-gray-700;
+            @apply text-gray-400 bg-gray-200 cursor-not-allowed hover:translate-y-0 hover:shadow-sm;
         }
-    }
-
-    .btn-lg {
-        --btn-font-size: 1.125rem;
-        --btn-px: 1.5rem;
-        --btn-py: 1.125rem;
     }
 }

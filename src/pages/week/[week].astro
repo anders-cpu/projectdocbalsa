@@ -1,0 +1,98 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { week: '1' } },
+    { params: { week: '2' } },
+    { params: { week: '3' } },
+    { params: { week: '4' } },
+    { params: { week: '5' } },
+    { params: { week: '6' } },
+    { params: { week: '7' } },
+    { params: { week: '8' } },
+    { params: { week: '9' } },
+    { params: { week: '10' } },
+    { params: { week: '11' } },
+    { params: { week: '12' } },
+  ];
+}
+
+const { week } = Astro.params;
+
+const weekTitles = {
+    '1': 'Basis uitleg',
+    '2': 'Figma leren kennen',
+    '3': 'Schermen maken in Figma',
+    '4': 'Conversie naar HTML met AI',
+    '5': 'HTML Basis & Deployment',
+    '6': 'Design & Coderen: Tailwind Setup',
+    '7': 'Design & Coderen: Implementatie',
+    '8': 'Professionalisering Design',
+    '9': 'Figma Interactief Prototype',
+    '10': 'Mobile Schermen Uitwerken',
+    '11': 'Eindspurt',
+    '12': 'Documentatie & Finalisering'
+};
+
+const weekDescriptions = {
+    '1': 'Introductie tot het project en de basisconcepten.',
+    '2': 'Verkenning van de Figma interface en mogelijkheden.',
+    '3': 'Opzetten van de eerste schermen en wireframes in Figma.',
+    '4': 'Experimenteren met AI tools (ChatGPT) om designs om te zetten naar code.',
+    '5': 'De basis van HTML leren, repository opzetten op GitHub en deployen via Netlify.',
+    '6': 'Starten met design systemen en installatie van Tailwind CSS.',
+    '7': 'Bestaande HTML omzetten naar Tailwind CSS componenten.',
+    '8': 'Verfijnen van de styling en het professioneler maken van de pagina.',
+    '9': 'Het mobiele ontwerp interactief maken in Figma (prototyping).',
+    '10': 'Verdere uitwerking en verfijning van de mobiele schermen.',
+    '11': 'Laatste aanpassingen en afwerking van het project.',
+    '12': 'Online zetten van de volledige ontwerpdocumentatie op GitHub en Netlify.'
+};
+
+const title = weekTitles[week] || `Week ${week}`;
+const description = weekDescriptions[week] || '';
+---
+
+<Layout title={`Week ${week} - ${title}`}>
+    <div class="max-w-3xl mx-auto">
+        <header class="mb-12 border-b border-gray-200 pb-8">
+            <span class="text-sm font-bold text-nmbs-blue uppercase tracking-wider">Weekverslag {week}</span>
+            <h1 class="text-4xl font-bold mt-2 mb-4 text-gray-900">{title}</h1>
+            <p class="text-xl text-gray-600">{description}</p>
+        </header>
+
+        <div class="prose prose-lg prose-headings:text-nmbs-blue prose-a:text-nmbs-blue max-w-none">
+            <h2>Gedane Wijzigingen</h2>
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm mb-8">
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li>Beschrijf hier wat je deze week hebt gedaan...</li>
+                    <li>Welke bestanden zijn aangepast?</li>
+                    <li>Welke nieuwe features zijn toegevoegd?</li>
+                </ul>
+            </div>
+
+            <h2>Waarom?</h2>
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                <p class="text-gray-700">
+                    Beschrijf hier de redenen achter je keuzes. Waarom heb je voor deze aanpak gekozen? Wat waren de uitdagingen?
+                </p>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-gray-100 flex justify-between text-sm text-gray-500">
+                {parseInt(week) > 1 ? (
+                    <a href={`/week/${parseInt(week) - 1}`} class="flex items-center hover:text-nmbs-blue">
+                        ← Vorige week
+                    </a>
+                ) : <span></span>}
+                
+                {parseInt(week) < 12 ? (
+                    <a href={`/week/${parseInt(week) + 1}`} class="flex items-center hover:text-nmbs-blue">
+                        Volgende week →
+                    </a>
+                ) : <span></span>}
+            </div>
+        </div>
+    </div>
+</Layout>
+

@@ -1,19 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Markdown from '../components/Markdown.astro';
-
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
-
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
 ---
 
-<Layout title="Welcome to Astro.">
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
+<Layout title="Lost in Tra(i)nslation - Procesdocumentatie">
+    <div class="max-w-3xl mx-auto space-y-12">
+        <section class="space-y-6">
+            <h1 class="text-4xl font-bold text-nmbs-blue">Welkom</h1>
+            <p class="text-lg leading-relaxed text-gray-700">
+                Dit is de procesdocumentatie voor het project <strong>"Lost in Tra(i)nslation"</strong>. 
+                Hieronder vind je de downloads en links naar het eindresultaat, en in het menu hierboven kan je de wekelijkse voortgang bekijken.
+            </p>
+        </section>
+
+        <section class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 flex flex-col items-start">
+                <h2 class="text-2xl font-bold text-nmbs-blue mb-4 mt-0">Ontwerp Documentatie</h2>
+                <p class="mb-6 text-gray-600">Download het volledige dossier (PDF) met alle onderdelen van het project.</p>
+                <a href="/ontwerp-documentatie.pdf" download class="btn w-full sm:w-auto">
+                    Download PDF
+                </a>
+            </div>
+
+            <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 flex flex-col items-start">
+                <h2 class="text-2xl font-bold text-nmbs-blue mb-4 mt-0">Mobile Prototype</h2>
+                <p class="mb-6 text-gray-600">Bekijk het werkende mobile applicatie ontwerp in Figma.</p>
+                <a href="https://www.figma.com/proto/YOUR-FIGMA-ID" target="_blank" rel="noopener noreferrer" class="btn w-full sm:w-auto">
+                    Open Figma Prototype ↗
+                </a>
+            </div>
+        </section>
+    </div>
 </Layout>
