@@ -2,20 +2,20 @@
 import Layout from '../../layouts/Layout.astro';
 
 export function getStaticPaths() {
-  return [
-    { params: { week: '1' } },
-    { params: { week: '2' } },
-    { params: { week: '3' } },
-    { params: { week: '4' } },
-    { params: { week: '5' } },
-    { params: { week: '6' } },
-    { params: { week: '7' } },
-    { params: { week: '8' } },
-    { params: { week: '9' } },
-    { params: { week: '10' } },
-    { params: { week: '11' } },
-    { params: { week: '12' } },
-  ];
+    return [
+        { params: { week: '1' } },
+        { params: { week: '2' } },
+        { params: { week: '3' } },
+        { params: { week: '4' } },
+        { params: { week: '5' } },
+        { params: { week: '6' } },
+        { params: { week: '7' } },
+        { params: { week: '8' } },
+        { params: { week: '9' } },
+        { params: { week: '10' } },
+        { params: { week: '11' } },
+        { params: { week: '12' } }
+    ];
 }
 
 const { week } = Astro.params;
@@ -74,25 +74,30 @@ const description = weekDescriptions[week] || '';
 
             <h2>Waarom?</h2>
             <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-                <p class="text-gray-700">
-                    Beschrijf hier de redenen achter je keuzes. Waarom heb je voor deze aanpak gekozen? Wat waren de uitdagingen?
-                </p>
+                <p class="text-gray-700">Beschrijf hier de redenen achter je keuzes. Waarom heb je voor deze aanpak gekozen? Wat waren de uitdagingen?</p>
             </div>
-            
+
             <div class="mt-12 pt-8 border-t border-gray-100 flex justify-between text-sm text-gray-500">
-                {parseInt(week) > 1 ? (
-                    <a href={`/week/${parseInt(week) - 1}`} class="flex items-center hover:text-nmbs-blue">
-                        ← Vorige week
-                    </a>
-                ) : <span></span>}
-                
-                {parseInt(week) < 12 ? (
-                    <a href={`/week/${parseInt(week) + 1}`} class="flex items-center hover:text-nmbs-blue">
-                        Volgende week →
-                    </a>
-                ) : <span></span>}
+                {
+                    parseInt(week) > 1 ? (
+                        <a href={`/week/${parseInt(week) - 1}`} class="flex items-center hover:text-nmbs-blue">
+                            ← Vorige week
+                        </a>
+                    ) : (
+                        <span />
+                    )
+                }
+
+                {
+                    parseInt(week) < 12 ? (
+                        <a href={`/week/${parseInt(week) + 1}`} class="flex items-center hover:text-nmbs-blue">
+                            Volgende week →
+                        </a>
+                    ) : (
+                        <span />
+                    )
+                }
             </div>
         </div>
     </div>
 </Layout>
-
