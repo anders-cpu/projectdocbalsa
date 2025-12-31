@@ -1,0 +1,54 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+    week: number;
+    title: string;
+    subtitle?: string;
+}
+
+const { week, title, subtitle } = Astro.props;
+
+const prevWeek = week > 1 ? week - 1 : null;
+const nextWeek = week < 12 ? week + 1 : null;
+---
+
+<Layout title={`Week ${week}: ${title}`}>
+    <div class="max-w-4xl mx-auto">
+        {/* Weekly Header */}
+        <div class="mb-12 pb-8 border-b border-gray-200">
+            <span class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-white uppercase rounded bg-nmbs-blue">
+                Week {week}
+            </span>
+            <h1 class="text-4xl font-bold text-gray-900 mb-2">{title}</h1>
+            {subtitle && <p class="text-xl text-gray-600 leading-relaxed">{subtitle}</p>}
+        </div>
+
+        {/* Rich Content Slot */}
+        <div class="prose prose-lg prose-headings:text-nmbs-blue prose-a:text-nmbs-blue prose-img:rounded-lg max-w-none mb-16">
+            <slot />
+        </div>
+
+        {/* Navigation Footer */}
+        <div class="flex justify-between items-center pt-8 border-t border-gray-200">
+            {prevWeek ? (
+                <a href={`/week/${prevWeek}`} class="group flex flex-col items-start p-4 rounded-lg hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-gray-200">
+                    <span class="text-sm text-gray-400 group-hover:text-nmbs-blue mb-1">← Vorige week</span>
+                    <span class="font-semibold text-gray-800">Week {prevWeek}</span>
+                </a>
+            ) : (
+                <div></div>
+            )}
+
+            {nextWeek ? (
+                <a href={`/week/${nextWeek}`} class="group flex flex-col items-end p-4 rounded-lg hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-gray-200">
+                    <span class="text-sm text-gray-400 group-hover:text-nmbs-blue mb-1">Volgende week →</span>
+                    <span class="font-semibold text-gray-800">Week {nextWeek}</span>
+                </a>
+            ) : (
+                <div></div>
+            )}
+        </div>
+    </div>
+</Layout>
+
