@@ -1,5 +1,6 @@
 ---
 import WeekLayout from '../../layouts/WeekLayout.astro';
+const figmaImage = 'Figma prototype 1.png';
 ---
 
 <WeekLayout 
@@ -9,7 +10,7 @@ import WeekLayout from '../../layouts/WeekLayout.astro';
 >
     <h2>Wat heb ik gedaan?</h2>
     <p>
-        Ik heb mijn account aangemaakt op Figma en de basis tutorials gevolgd. Ik heb geleerd over:
+        Ik heb mijn account aangemaakt op Figma en een basisles gekregen in de klas over hoe we hiermee moeten werken. Ik heb geleerd over:
     </p>
     <ul>
         <li>Frames en Groups</li>
@@ -21,5 +22,13 @@ import WeekLayout from '../../layouts/WeekLayout.astro';
     <p>
         Figma is de industriestandaard voor UI design. Het is essentieel om deze tool onder de knie te krijgen vooraleer we de echte schermen gaan ontwerpen.
     </p>
+    
+    <!-- Figma prototype image -->
+    <section class="week-figma" aria-label="Figma prototype" style="margin-top:2rem;">
+        <h3>Figma Prototype</h3>
+        <div>
+            <img src={encodeURI('/images/' + figmaImage)} alt="Figma prototype 1" style="max-width:100%;height:auto;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,0.08);" />
+        </div>
+    </section>
 </WeekLayout>
 
