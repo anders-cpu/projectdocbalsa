@@ -1,5 +1,11 @@
 ---
 import WeekLayout from '../../layouts/WeekLayout.astro';
+const week4Photos = [
+    'Screenshot 2026-01-01 at 14.59.16.png',
+    'Screenshot 2026-01-01 at 14.59.25.png',
+    'Screenshot 2026-01-01 at 14.59.33.png',
+];
+const week4Folder = '/images/Week 4/';
 ---
 
 <WeekLayout week={4} title="Conversie naar HTML met AI" subtitle="Experimenteren met AI tools.">
@@ -10,6 +16,16 @@ import WeekLayout from '../../layouts/WeekLayout.astro';
     <p>De output was verrassend goed voor de structuur, maar de styling was nog niet perfect. Het heeft me wel een goede basis gegeven om mee te starten.</p>
 
     <h2>Waarom?</h2>
-    <p>AI kan het ontwikkelproces versnellen, maar het blijft belangrijk om de gegenereerde code te begrijpen en te kunnen aanpassen.</p>
-    <!-- Actual screenshot: place your screenshot in public/images/week4-screenshot.png -->
+    <p>AI kan het ontwikkelproces versnellen, maar het blijft belangrijk om de gegenereerde code te begrijpen en te kunnen aanpassen. Zo ben je altijd goed voorbereid op onverwachte problemen.</p>
+    <!-- Week 4 screenshots gallery -->
+    <section class="week4-gallery" aria-label="Week 4 screenshots" style="margin-top:2rem;">
+        <h3>Screenshots van week 4</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;">
+            {week4Photos.map((name) => (
+                <figure style="margin:0;width:220px;">
+                    <img src={encodeURI(week4Folder + name)} alt={name} style="width:100%;height:auto;display:block;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,0.08);" />
+                </figure>
+            ))}
+        </div>
+    </section>
 </WeekLayout>
