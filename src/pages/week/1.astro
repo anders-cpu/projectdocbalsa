@@ -1,5 +1,7 @@
 ---
 import WeekLayout from '../../layouts/WeekLayout.astro';
+const sketches = ['IMG_0857.JPG', 'IMG_0858.JPG', 'IMG_0859.JPG'];
+const sketchesFolder = '/images/lost in trainslation schetsen/';
 ---
 
 <WeekLayout week={1} title="Basis uitleg" subtitle="Introductie tot het project en de basisconcepten.">
@@ -20,4 +22,15 @@ import WeekLayout from '../../layouts/WeekLayout.astro';
 
     <!-- Voorbeeld van een afbeelding (zorg dat de afbeelding in public/images staat) -->
     <!-- <img src="/images/week1-sketch.jpg" alt="Eerste schetsen" /> -->
+    <!-- Gallery: Lost in Trainslation schetsen -->
+    <section class="week-sketches" aria-label="Lost in Trainslation schetsen" style="margin-top:2rem;">
+        <h3>Schetsen</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;">
+            {sketches.map((name) => (
+                <figure style="margin:0;">
+                    <img src={encodeURI(sketchesFolder + name)} alt={name} style="width:220px;height:auto;display:block;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,0.08);" />
+                </figure>
+            ))}
+        </div>
+    </section>
 </WeekLayout>
