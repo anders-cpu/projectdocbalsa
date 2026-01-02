@@ -1,38 +1,37 @@
 ---
 import WeekLayout from '../../layouts/WeekLayout.astro';
-const week3Photos = [
-    'Screenshot 2026-01-01 at 14.59.16.png',
-    'Screenshot 2026-01-01 at 14.59.25.png',
-    'Screenshot 2026-01-01 at 14.59.33.png',
-];
+const week3Photos = ['Screenshot 2026-01-01 at 14.59.16.png', 'Screenshot 2026-01-01 at 14.59.25.png', 'Screenshot 2026-01-01 at 14.59.33.png'];
 const week3Folder = '/images/Week 3/';
 ---
 
-<WeekLayout 
-    week={3} 
-    title="Schermen maken in Figma" 
-    subtitle="Opzetten van de eerste schermen en wireframes."
->
+<WeekLayout week={3} title="Schermen maken in Figma" subtitle="Opzetten van de eerste schermen en wireframes.">
     <h2>Wat heb ik gedaan?</h2>
     <p>
-        De eerste wireframes zijn gemaakt. Ik heb me vooral gefocust op het afkrijgen van mijn figma prototypes en ben ook stilaan begonnen met de flow van de applicatie.
+        Deze week ben ik gestart met het maken van de eerste wireframes in Figma. Ik heb me vooral gericht op het opzetten van de globale structuur van de
+        applicatie en het uitwerken van de belangrijkste schermen. Door te werken met low-fidelity wireframes kon ik snel verschillende ideeën uitproberen en de
+        flow van de applicatie optimaliseren. Daarnaast heb ik feedback gevraagd aan medestudenten en deze verwerkt in mijn ontwerpen.
     </p>
 
     <h2>Waarom?</h2>
     <p>
-        Door eerst wireframes te maken (low-fidelity) kan ik snel de structuur verbeteren zonder afgeleid te geraken door kleuren of details.
+        Door eerst wireframes te maken zonder te veel aandacht te besteden aan kleuren of details, kan ik de structuur snel verbeteren. Dit zorgt ervoor dat ik
+        flexibel kan inspelen op veranderingen en dat het uiteindelijke ontwerp beter aansluit bij de wensen van de gebruiker.
     </p>
     <!-- Week 3 screenshots gallery (moved from Week 4) -->
     <section class="week3-gallery" aria-label="Week 3 screenshots" style="margin-top:2rem;">
         <h3>Screenshots van week 3</h3>
         <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;">
-            {week3Photos.map((name) => (
-                <figure style="margin:0;width:220px;">
-                    <img src={encodeURI(week3Folder + name)} alt={name} style="width:100%;height:auto;display:block;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,0.08);" />
-                </figure>
-            ))}
+            {
+                week3Photos.map((name) => (
+                    <figure style="margin:0;width:220px;">
+                        <img
+                            src={encodeURI(week3Folder + name)}
+                            alt={name}
+                            style="width:100%;height:auto;display:block;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,0.08);"
+                        />
+                    </figure>
+                ))
+            }
         </div>
     </section>
-    
 </WeekLayout>
-

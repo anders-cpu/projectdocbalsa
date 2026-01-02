@@ -7,18 +7,21 @@ const sketchesFolder = '/images/lost in trainslation schetsen/';
 <WeekLayout week={1} title="Basis uitleg" subtitle="Introductie tot het project en de basisconcepten.">
     <h2>Wat heb ik gedaan?</h2>
     <p>
-        Deze week stond in het teken van de opstart. Op maandag hebben we de briefing gekregen voor het "Lost in Tra(i)nslation" project en zijn we begonnen met
-        het overlopen van de vereisten. Ook heb ik een gebruiksonderzoek gedaan om te zien hoe makkelijk het navigeren van deze schermen verloopt.
+        Deze week stond volledig in het teken van de opstart van het project. Op maandag hebben we een uitgebreide briefing gekregen voor het "Lost in
+        Tra(i)nslation" project. We zijn begonnen met het grondig overlopen van de vereisten en het opstellen van een eerste planning. Daarnaast heb ik een
+        gebruiksonderzoek uitgevoerd om te analyseren hoe makkelijk het navigeren van de verschillende schermen verloopt. Dit gaf me waardevolle inzichten in de
+        gebruikerservaring en mogelijke knelpunten.
     </p>
-
     <ul>
-        <li>Briefing doorgenomen</li>
-        <li>Onderzoek gedaan naar de stijl die de NMBS gebruikt in hun design</li>
-        <li>Eerste ideeën op papier geschetst</li>
+        <li>Briefing doorgenomen en besproken met het team</li>
+        <li>Onderzoek gedaan naar de stijl en richtlijnen die de NMBS hanteert in hun design</li>
+        <li>Eerste ideeën en schetsen op papier gezet, waarbij ik verschillende concepten heb uitgeprobeerd</li>
     </ul>
-
     <h2>Waarom?</h2>
-    <p>Een goede voorbereiding is het halve werk. Door eerst de structuur en vereisten goed te begrijpen, voorkom ik later problemen in het proces.</p>
+    <p>
+        Een goede voorbereiding is het halve werk. Door eerst de structuur en vereisten goed te begrijpen, voorkom ik later problemen in het proces. Deze aanpak
+        zorgt ervoor dat ik gericht en efficiënt te werk kan gaan in de komende weken.
+    </p>
 
     <!-- Voorbeeld van een afbeelding (zorg dat de afbeelding in public/images staat) -->
     <!-- <img src="/images/week1-sketch.jpg" alt="Eerste schetsen" /> -->
@@ -26,11 +29,17 @@ const sketchesFolder = '/images/lost in trainslation schetsen/';
     <section class="week-sketches" aria-label="Lost in Trainslation schetsen" style="margin-top:2rem;">
         <h3>Schetsen</h3>
         <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;">
-            {sketches.map((name) => (
-                <figure style="margin:0;">
-                    <img src={encodeURI(sketchesFolder + name)} alt={name} style="width:220px;height:auto;display:block;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,0.08);" />
-                </figure>
-            ))}
+            {
+                sketches.map((name) => (
+                    <figure style="margin:0;">
+                        <img
+                            src={encodeURI(sketchesFolder + name)}
+                            alt={name}
+                            style="width:220px;height:auto;display:block;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,0.08);"
+                        />
+                    </figure>
+                ))
+            }
         </div>
     </section>
 </WeekLayout>
