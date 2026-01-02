@@ -2,24 +2,19 @@
 import WeekLayout from '../../layouts/WeekLayout.astro';
 ---
 
-<WeekLayout 
-    week={6} 
-    title="Design & Coderen: Tailwind Setup" 
-    subtitle="Starten met design systemen."
->
+<WeekLayout week={6} title="Design & Coderen: Tailwind Setup" subtitle="Starten met design systemen.">
     <h2>Wat heb ik gedaan?</h2>
     <p>
-        Ik heb Tailwind CSS geïnstalleerd in het project. Dit framework maakt het stylen veel sneller dan standaard CSS waardoor ik mij ook hierop kan focussen.
+        Ik heb Tailwind CSS geïnstalleerd in het project, omdat dit framework het mogelijk maakt om veel sneller en efficiënter te stylen dan met standaard CSS.
+        Door het gebruik van Tailwind kan ik mijn aandacht meer richten op het ontwerp en de functionaliteit van het project, in plaats van tijd te verliezen
+        aan repetitieve CSS-code.
     </p>
     <ul class="list-disc pl-5">
         <li>Netlify gekoppeld aan GitHub</li>
     </ul>
-    
+
     <pre><code class="language-bash">npm install tailwindcss @tailwindcss/vite</code></pre>
 
     <h2>Waarom?</h2>
-    <p>
-        Tailwind zorgt voor consistentie door het gebruik van utility classes. Het voorkomt "spaghetti CSS".
-    </p>
+    <p>Tailwind zorgt voor consistentie door het gebruik van utility classes. Het voorkomt "spaghetti CSS".</p>
 </WeekLayout>
-

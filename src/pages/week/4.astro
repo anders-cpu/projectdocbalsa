@@ -1,31 +1,39 @@
 ---
 import WeekLayout from '../../layouts/WeekLayout.astro';
-const week4Photos = [
-    'Screenshot 2026-01-02 at 12.16.49.png',
-    'Screenshot 2026-01-02 at 12.16.56.png',
-    'Screenshot 2026-01-02 at 12.17.03.png',
-];
+const week4Photos = ['Screenshot 2026-01-02 at 12.16.49.png', 'Screenshot 2026-01-02 at 12.16.56.png', 'Screenshot 2026-01-02 at 12.17.03.png'];
 const week4Folder = '/images/Week 4/';
 ---
 
 <WeekLayout week={4} title="Conversie naar HTML met AI" subtitle="Experimenteren met AI tools.">
     <h2>Wat heb ik gedaan?</h2>
-    <p>Ik heb screenshots van mijn Figma designs aan ChatGPT gegeven en gevraagd om deze om te zetten naar HTML code.</p>
+    <p>
+        Ik heb screenshots van mijn Figma-designs aan ChatGPT verstrekt en gevraagd om deze om te zetten naar HTML-code. Op deze manier kon ik een eerste,
+        functionele opzet van de ontwerpen creëren, die ik vervolgens verder kon verfijnen en optimaliseren voor gebruik in het project.
+    </p>
 
     <h2>Resultaat & Analyse</h2>
     <p>De output was verrassend goed voor de structuur, maar de styling was nog niet perfect. Het heeft me wel een goede basis gegeven om mee te starten.</p>
 
     <h2>Waarom?</h2>
-    <p>AI kan het ontwikkelproces versnellen, maar het blijft belangrijk om de gegenereerde code te begrijpen en te kunnen aanpassen. Zo ben je altijd goed voorbereid op onverwachte problemen.</p>
+    <p>
+        AI kan het ontwikkelproces versnellen, maar het blijft belangrijk om de gegenereerde code te begrijpen en te kunnen aanpassen. Zo ben je altijd goed
+        voorbereid op onverwachte problemen.
+    </p>
     <!-- Week 4 screenshots gallery (restored) -->
     <section class="week4-gallery" aria-label="Week 4 screenshots" style="margin-top:2rem;">
         <h3>Screenshots van week 4</h3>
         <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;">
-            {week4Photos.map((name) => (
-                <figure style="margin:0;width:220px;">
-                    <img src={encodeURI(week4Folder + name)} alt={name} style="width:100%;height:auto;display:block;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,0.08);" />
-                </figure>
-            ))}
+            {
+                week4Photos.map((name) => (
+                    <figure style="margin:0;width:220px;">
+                        <img
+                            src={encodeURI(week4Folder + name)}
+                            alt={name}
+                            style="width:100%;height:auto;display:block;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,0.08);"
+                        />
+                    </figure>
+                ))
+            }
         </div>
     </section>
 </WeekLayout>
